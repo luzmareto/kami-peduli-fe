@@ -13,11 +13,13 @@
                 <label class="font-normal text-lg text-white block mb-3"
                   >Email Address</label
                 >
+                <!-- login -->
                 <input
+                  @keyup.enter="userLogin"
                   type="email"
+                  v-model="login.email"
                   class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                   placeholder="Write your email address here"
-                  value="julia.keeva@gmail.com"
                 />
               </div>
             </div>
@@ -26,18 +28,20 @@
                 <label class="font-normal text-lg text-white block mb-3"
                   >Password</label
                 >
+                <!-- login and enter -->
                 <input
+                @keyup.enter="userLogin"
                   type="password"
+                  v-model="login.password"
                   class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                   placeholder="Write your password here"
-                  value="nasigorenglimaribbu"
                 />
               </div>
             </div>
             <div class="mb-6">
               <div class="mb-4">
                 <button
-                  @click="$router.push({ path: '/' })"
+                  @click="userLogin"
                   class="block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-4 text-lg rounded-full"
                 >
                   Sign In
@@ -57,6 +61,7 @@
       </div>        
 </template>
 
+<!-- login -->
 <script>
 export default {
     layout: 'auth',
